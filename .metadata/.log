@@ -1,0 +1,20 @@
+!SESSION 2021-06-24 22:12:47.759 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=11.0.11
+java.vendor=Debian
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_ZM
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -data /home/npenayo/Facultad/programacion_1/parcial2 -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.oomph.setup.ui 1 0 2021-06-24 22:13:05.702
+!MESSAGE Setup tasks were performed during startup updating 4 preferences.See '/home/npenayo/eclipse/cpp-2021-03/eclipse/configuration/org.eclipse.oomph.setup/setup.log' for details
+!SESSION 2021-06-24 22:13:12.291 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=11.0.11
+java.vendor=Debian
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_ZM
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -data /home/npenayo/Facultad/programacion_1/parcial2 -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-06-24 22:14:55.960
+!MESSAGE Indexed 'parcial2_labo_penayo' (1 sources, 50 headers) in 0.618 sec: 959 declarations; 1,785 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

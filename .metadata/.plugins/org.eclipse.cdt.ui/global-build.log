@@ -1,0 +1,24 @@
+22:15:06 **** Build of configuration Debug for project parcial2_labo_penayo ****
+make all 
+Building file: ../src/parcial2_labo_penayo.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/parcial2_labo_penayo.d" -MT"src/parcial2_labo_penayo.o" -o "src/parcial2_labo_penayo.o" "../src/parcial2_labo_penayo.c"
+Finished building: ../src/parcial2_labo_penayo.c
+ 
+Building target: parcial2_labo_penayo
+Invoking: GCC C Linker
+gcc  -o "parcial2_labo_penayo"  ./src/parcial2_labo_penayo.o   
+Finished building target: parcial2_labo_penayo
+ 
+22:15:11 **** Incremental Build of configuration Debug for project parcial2_labo_penayo ****
+make all 
+make: Nothing to be done for 'all'.
+22:15:23 **** Incremental Build of configuration Debug for project parcial2_labo_penayo ****
+make all 
+make: Nothing to be done for 'all'.
+22:15:49 **** Incremental Build of configuration Debug for project parcial2_labo_penayo ****
+make all 
+make: Nothing to be done for 'all'.
+22:15:55 **** Incremental Build of configuration Debug for project parcial2_labo_penayo ****
+make all 
+make: Nothing to be done for 'all'.
