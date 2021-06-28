@@ -1,0 +1,38 @@
+/*
+ ============================================================================
+ Name        : parcial2_labo_penayo.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "LinkedList.h"
+int main(void) {
+	LinkedList *bookList = ll_newLinkedList();
+	int opt;
+	do {
+		printf("\n%50s", "Menu principal");
+		printf("\n1- Cargar libros desde archivo\n2- Ordenar listado\n3- Mostrar Listado\n4- Aplicar descuentos\n5- Salir");
+	} while ();
+
+	ll_deleteLinkedList(bookList);
+	return EXIT_SUCCESS;
+}
+void clearConsole() {
+#if defined( __linux__)
+	system("clear");
+#elif defined( __MINGW32__)
+		system("cls");
+#endif
+}
+void cleanBuffer() {
+#if defined(__linux__)
+	__fpurge(stdin);
+#elif defined(__MINGW32__)
+	fflush(stdin);
+#endif
+}

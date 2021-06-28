@@ -4,13 +4,34 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/parcial2_labo_penayo.c 
+../src/Arrays.c \
+../src/Book.c \
+../src/Controller.c \
+../src/Editorial.c \
+../src/LinkedList.c \
+../src/Parser.c \
+../src/Validations.c \
+../src/main.c 
 
 OBJS += \
-./src/parcial2_labo_penayo.o 
+./src/Arrays.o \
+./src/Book.o \
+./src/Controller.o \
+./src/Editorial.o \
+./src/LinkedList.o \
+./src/Parser.o \
+./src/Validations.o \
+./src/main.o 
 
 C_DEPS += \
-./src/parcial2_labo_penayo.d 
+./src/Arrays.d \
+./src/Book.d \
+./src/Controller.d \
+./src/Editorial.d \
+./src/LinkedList.d \
+./src/Parser.d \
+./src/Validations.d \
+./src/main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

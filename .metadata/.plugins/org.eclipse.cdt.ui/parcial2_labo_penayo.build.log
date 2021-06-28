@@ -1,6 +1,15 @@
-22:15:55 **** Incremental Build of configuration Debug for project parcial2_labo_penayo ****
+03:01:12 **** Incremental Build of configuration Debug for project parcial2_labo_penayo ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../src/main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: parcial2_labo_penayo
+Invoking: GCC C Linker
+gcc  -o "parcial2_labo_penayo"  ./src/Arrays.o ./src/Book.o ./src/Controller.o ./src/Editorial.o ./src/LinkedList.o ./src/Parser.o ./src/Validations.o ./src/main.o   
+Finished building target: parcial2_labo_penayo
+ 
 
-22:15:55 Build Finished. 0 errors, 0 warnings. (took 324ms)
+03:01:12 Build Finished. 0 errors, 0 warnings. (took 446ms)
 

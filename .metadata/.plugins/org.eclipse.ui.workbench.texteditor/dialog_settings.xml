@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="427"/>
+		<item key="DIALOG_Y_ORIGIN" value="243"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="int controller_ListEmployee(LinkedList *pArrayListEmployee) {"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="int controller_ListEmployee(LinkedList *pArrayListEmployee) {"/>
+			<item value="getEditorialDescription"/>
+			<item value="&#x09;char desc[128];"/>
+			<item value="&#x0D;&#x0A;/** \brief Alta de empleados&#x0D;&#x0A; *&#x0D;&#x0A; * \param path char*&#x0D;&#x0A; * \param pArrayListEmployee LinkedList*&#x0D;&#x0A; * \return int&#x0D;&#x0A; *&#x0D;&#x0A; */&#x0D;&#x0A;int controller_addEmployee(LinkedList *pArrayListEmployee) {&#x0D;&#x0A;&#x09;int resp = 0;&#x0D;&#x0A;&#x09;char auxNombre[128];&#x0D;&#x0A;&#x09;int auxHoras;&#x0D;&#x0A;&#x09;int auxSueldo;&#x0D;&#x0A;&#x09;int lastId = 1;&#x0D;&#x0A;&#x09;if (!ll_isEmpty(pArrayListEmployee)) {&#x0D;&#x0A;&#x09;&#x09;for (int i = 0; i &lt; ll_len(pArrayListEmployee); i++) {&#x0D;&#x0A;&#x09;&#x09;&#x09;Employee *tmp = ll_get(pArrayListEmployee, i);&#x0D;&#x0A;&#x09;&#x09;&#x09;int tmpId;&#x0D;&#x0A;&#x09;&#x09;&#x09;employee_getId(tmp, &amp;tmpId);&#x0D;&#x0A;&#x09;&#x09;&#x09;if (tmpId &gt; lastId) {&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;employee_getId(tmp, &amp;lastId);&#x0D;&#x0A;&#x09;&#x09;&#x09;}&#x0D;&#x0A;&#x09;&#x09;}&#x0D;&#x0A;&#x09;&#x09;lastId++;&#x0D;&#x0A;&#x09;}&#x0D;&#x0A;&#x09;Employee *newEmp = employee_new();&#x0D;&#x0A;&#x09;if (newEmp != NULL) {&#x0D;&#x0A;&#x09;&#x09;if (validString(&quot;Nombre del empleado&quot;,&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&quot;Error.El nombre no puede estar vacio o contener numeros&quot;,&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;auxNombre, 128, MAX_ATTEMPTS)&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&amp;&amp; validInt(&quot;Horas trabajadas(MAX:325)&quot;,&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&quot;Error.Cantidad de horas invalidas&quot;, &amp;auxHoras, 1, 325,&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;MAX_ATTEMPTS)&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&amp;&amp; validInt(&quot;Sueldo del empleado&quot;, &quot;Error.Sueldo invalido&quot;,&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&amp;auxSueldo, 10000, 50000, MAX_ATTEMPTS)) {&#x0D;&#x0A;&#x09;&#x09;&#x09;employee_setId(newEmp, lastId);&#x0D;&#x0A;&#x09;&#x09;&#x09;employee_setNombre(newEmp, auxNombre);&#x0D;&#x0A;&#x09;&#x09;&#x09;employee_setHorasTrabajadas(newEmp, auxHoras);&#x0D;&#x0A;&#x09;&#x09;&#x09;employee_setSueldo(newEmp, auxSueldo);&#x0D;&#x0A;&#x09;&#x09;&#x09;ll_add(pArrayListEmployee, (Employee*) newEmp);&#x0D;&#x0A;&#x09;&#x09;&#x09;resp = 1;&#x0D;&#x0A;&#x09;&#x09;}&#x0D;&#x0A;&#x09;}&#x0D;&#x0A;&#x09;return resp;&#x0D;&#x0A;}&#x0D;&#x0A;"/>
+			<item value=""/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="515"/>
+		<item key="DIALOG_Y_ORIGIN" value="100"/>
+		<item key="DIALOG_WIDTH" value="336"/>
+		<item key="DIALOG_HEIGHT" value="427"/>
+		<item key="DIALOG_FONT_NAME" value="1|Roboto|10.0|0|GTK|1|"/>
+	</section>
+</section>

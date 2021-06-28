@@ -1,0 +1,30 @@
+/*
+ * Book.h
+ *
+ *  Created on: 27 Jun 2021
+ *      Author: Nicolas Penayo 1E
+ */
+
+#ifndef BOOK_H_
+#define BOOK_H_
+typedef struct {
+	int _id;
+	char _title[128];
+	char _author[50];
+	int _price;
+	int _idEditorial;
+} eBook;
+
+eBook* newBook(char *id, char *title, char *author, char *price,
+		int editorial);
+int setBookId(eBook*,int id);
+int setBookTitle(eBook*,char* title);
+int setBookAuthor(eBook*,char* author);
+int setBookPrice(eBook*,int price);
+int setBookEditorial(eBook*,int id);
+int getBookId(eBook*);
+char getBookTitle(eBook*);
+char getBookAuthor(eBook*);
+int getBookPrice(eBook*);
+int getBookEditorial(eBook*);
+#endif /* BOOK_H_ */

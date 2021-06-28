@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "LinkedList.h"
+#include "Book.h"
+#include "Editorial.h"
+
+/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
+ *
+ * \param path char*
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
+int parserBookFromText(FILE *pFile, LinkedList *pBookList, LinkedList *edList) {
+	char buffer[5][128];
+	int registers = 0;
+	int edId = 1;
+	eBook *auxBook = NULL;
+	Editorial *auxEd = NULL;
+	fscanf(pFile, "%[^,],%[^,],%[^,],%[^,],%[^\n]\n", *(buffer + 0),
+			*(buffer + 1), *(buffer + 2), *(buffer + 3), *(buffer + 4));
+	while (!feof(pFile)) {
+
+		fscanf(pFile, "%[^,],%[^,],%[^,],%[^,],%[^\n]\n", *(buffer + 0),
+				*(buffer + 1), *(buffer + 2), *(buffer + 3), *(buffer + 4));
+		auxEd = getEditorialByDescription(edList, *(buffer + 4));
+		if (auxEd == NULL) {
+			auxEd = newEditorial(edId, *(buffer + 4));
+			if (auxEd != NULL) {
+				ll_add(edList, auxEd);
+
+			} else {
+				break;
+			}
+		}
+		auxBook = newBook(*(buffer + 0), *(buffer + 1), *(buffer + 2),
+				*(buffer + 3), edId);
+		ll_add(pBookList, auxBook);
+		edId++;
+	}
+	for (int i = 0; i < ll_len(edList); i++) {
+		auxEd = ll_get(edList, i);
+		printf("\nID: %d, Descripcion: %s", auxEd->_id, auxEd->_description);
+
+	}
+
+	return registers;
+}

@@ -1,0 +1,22 @@
+/*
+ * Editorial.h
+ *
+ *  Created on: 27 Jun 2021
+ *      Author: npenayo
+ */
+
+#ifndef EDITORIAL_H_
+#define EDITORIAL_H_
+
+typedef struct {
+	int _id;
+	char _description[128];
+} Editorial;
+
+Editorial* newEditorial(int id, char *description);
+int setEditorialId(Editorial *this, int);
+int setEditorialDescription(Editorial *this, char*);
+int getEditorialId(Editorial *this);
+char getEditorialDescription(Editorial *this);
+Editorial* getEditorialById(int id);
+#endif /* EDITORIAL_H_ */

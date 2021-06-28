@@ -1,0 +1,2 @@
+int parserBookFromText(FILE* pFile , LinkedList* pArrayListEmployee);
+int parserBookFromBinary(FILE* pFile , LinkedList* pArrayListEmployee);

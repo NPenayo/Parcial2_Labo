@@ -1,0 +1,297 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdio_ext.h>
+#include <string.h>
+#include "LinkedList.h"
+#include "Parser.h"
+#include "Validations.h"
+#include "Arrays.h"
+#include "Book.h"
+#include "Editorial.h"
+
+int controller_ListBooks(LinkedList *bookList, LinkedList *eList) {
+	int resp = 0;
+	char edDesciption[128];
+	char tmpTitle[128];
+	char tmpAuthor[128];
+	eBook *tmp = NULL;
+	if (!ll_isEmpty(bookList)) {
+		printf("\n%50s", "Listado de empleados");
+		printf("\n\n%5s %2c %20s %2c %18s %3c %14s %3C %14s", "ID", '|', "Titulo",
+				'|', "Autor", '|', "Precio", '|', "Editorial");
+		printf(
+				"\n ------------------------------------------------------------------------");
+		for (int i = 0; i < ll_len(bookList); i++) {
+			tmp = ll_get(bookList, i);
+			if (tmp != NULL) {
+				getEditorialDescription(getEditorialById(eList, getBookEditorial(tmp)), edDesciption);
+				getBookTitle(tmp, tmpTitle);
+				getBookAuthor(tmp, tmpAuthor);
+				printf("\n%7d %-10s %-45s %14d %-16s",getBookId(tmp),tmpTitle,tmpAuthor,getBookPrice(tmp),edDesciption );
+			}
+
+		}
+		printf("\n\nPresione una tecla para volver al menu...");
+		__fpurge(stdin);
+		getchar();
+		resp = 1;
+	}
+
+	return resp;
+}
+
+ /** \brief Ordenar empleados
+ *
+ * \param path char*
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
+/*int controller_sortEmployee(LinkedList *pArrayListEmployee) {
+ int resp = 0;
+ int option;
+ do {
+ printf("\n%50s", "Ordenar empleados");
+ printf("\n\n*1- Nombre ASC");
+ printf("\n*2- Nombre DESC");
+ printf("\n*3- ID ASC");
+ printf("\n*4- ID DESC");
+ printf("\n*5- Horas ASC");
+ printf("\n*6- Horas DESC");
+ printf("\n*7- Sueldo ASC");
+ printf("\n*8- Sueldo Desc");
+ printf("\n*9- Salir");
+ if (validInt("Opcion", "Error.Opcion invalida", &option, 1, 9,
+ MAX_ATTEMPTS)) {
+ switch (option) {
+ case 1:
+ for (int i = 0; i < ll_len(pArrayListEmployee) - 1; i++) {
+ for (int j = i + 1; j < ll_len(pArrayListEmployee); j++) {
+ char nameA[128];
+ char nameB[128];
+ Employee *empA = ll_get(pArrayListEmployee, i);
+ Employee *empB = ll_get(pArrayListEmployee, j);
+ employee_getNombre(empA, nameA);
+ employee_getNombre(empB, nameB);
+ if (strcmp(nameA, nameB) > 0) {
+ ll_set(pArrayListEmployee, i, empB);
+ ll_set(pArrayListEmployee, j, empA);
+ }
+
+ }
+
+ }
+ resp = 1;
+ printf("\nOrdenamiento exitoso!!!");
+ break;
+ case 2:
+ for (int i = 0; i < ll_len(pArrayListEmployee) - 1; i++) {
+ for (int j = i + 1; j < ll_len(pArrayListEmployee); j++) {
+ char nameA[128];
+ char nameB[128];
+ Employee *empA = ll_get(pArrayListEmployee, i);
+ Employee *empB = ll_get(pArrayListEmployee, j);
+ employee_getNombre(empA, nameA);
+ employee_getNombre(empB, nameB);
+ if (strcmp(nameA, nameB) < 0) {
+ ll_set(pArrayListEmployee, i, empB);
+ ll_set(pArrayListEmployee, j, empA);
+ }
+
+ }
+
+ }
+ resp = 1;
+ printf("\nOrdenamiento exitoso!!!");
+ break;
+ case 3:
+ for (int i = 0; i < ll_len(pArrayListEmployee) - 1; i++) {
+ for (int j = i + 1; j < ll_len(pArrayListEmployee); j++) {
+ int idA;
+ int idB;
+ Employee *empA = ll_get(pArrayListEmployee, i);
+ Employee *empB = ll_get(pArrayListEmployee, j);
+ employee_getId(empA, &idA);
+ employee_getId(empB, &idB);
+ if (idA > idB) {
+ ll_set(pArrayListEmployee, i, empB);
+ ll_set(pArrayListEmployee, j, empA);
+ }
+
+ }
+
+ }
+ resp = 1;
+ printf("\nOrdenamiento exitoso!!!");
+ break;
+ case 4:
+ for (int i = 0; i < ll_len(pArrayListEmployee) - 1; i++) {
+ for (int j = i + 1; j < ll_len(pArrayListEmployee); j++) {
+ int idA;
+ int idB;
+ Employee *empA = ll_get(pArrayListEmployee, i);
+ Employee *empB = ll_get(pArrayListEmployee, j);
+ employee_getId(empA, &idA);
+ employee_getId(empB, &idB);
+ if (idA < idB) {
+ ll_set(pArrayListEmployee, i, empB);
+ ll_set(pArrayListEmployee, j, empA);
+ }
+
+ }
+
+ }
+ resp = 1;
+ printf("\nOrdenamiento exitoso!!!");
+ break;
+ case 5:
+ for (int i = 0; i < ll_len(pArrayListEmployee) - 1; i++) {
+ for (int j = i + 1; j < ll_len(pArrayListEmployee); j++) {
+ int hourA;
+ int hourB;
+ Employee *empA = ll_get(pArrayListEmployee, i);
+ Employee *empB = ll_get(pArrayListEmployee, j);
+ employee_getHorasTrabajadas(empA, &hourA);
+ employee_getHorasTrabajadas(empB, &hourB);
+ if (hourA > hourB) {
+ ll_set(pArrayListEmployee, i, empB);
+ ll_set(pArrayListEmployee, j, empA);
+ }
+
+ }
+
+ }
+ resp = 1;
+ printf("\nOrdenamiento exitoso!!!");
+ break;
+ case 6:
+ for (int i = 0; i < ll_len(pArrayListEmployee) - 1; i++) {
+ for (int j = i + 1; j < ll_len(pArrayListEmployee); j++) {
+ int hourA;
+ int hourB;
+ Employee *empA = ll_get(pArrayListEmployee, i);
+ Employee *empB = ll_get(pArrayListEmployee, j);
+ employee_getHorasTrabajadas(empA, &hourA);
+ employee_getHorasTrabajadas(empB, &hourB);
+ if (hourA < hourB) {
+ ll_set(pArrayListEmployee, i, empB);
+ ll_set(pArrayListEmployee, j, empA);
+ }
+
+ }
+
+ }
+ resp = 1;
+ printf("\nOrdenamiento exitoso!!!");
+ break;
+ case 7:
+ for (int i = 0; i < ll_len(pArrayListEmployee) - 1; i++) {
+ for (int j = i + 1; j < ll_len(pArrayListEmployee); j++) {
+ int sallaryA;
+ int sallaryB;
+ Employee *empA = ll_get(pArrayListEmployee, i);
+ Employee *empB = ll_get(pArrayListEmployee, j);
+ employee_getSueldo(empA, &sallaryA);
+ employee_getSueldo(empB, &sallaryB);
+ if (sallaryA > sallaryB) {
+ ll_set(pArrayListEmployee, i, empB);
+ ll_set(pArrayListEmployee, j, empA);
+ }
+
+ }
+
+ }
+ resp = 1;
+ printf("\nOrdenamiento exitoso!!!");
+ break;
+ case 8:
+ for (int i = 0; i < ll_len(pArrayListEmployee) - 1; i++) {
+ for (int j = i + 1; j < ll_len(pArrayListEmployee); j++) {
+ int sallaryA;
+ int sallaryB;
+ Employee *empA = ll_get(pArrayListEmployee, i);
+ Employee *empB = ll_get(pArrayListEmployee, j);
+ employee_getSueldo(empA, &sallaryA);
+ employee_getSueldo(empB, &sallaryB);
+ if (sallaryA < sallaryB) {
+ ll_set(pArrayListEmployee, i, empB);
+ ll_set(pArrayListEmployee, j, empA);
+ }
+
+ }
+
+ }
+ resp = 1;
+ printf("\nOrdenamiento exitoso!!!");
+ break;
+ }
+ resp = 1;
+ } else {
+ break;
+ }
+ } while (!(option == 9));
+
+ return resp;
+ }*/
+
+/** \brief Guarda los datos de los empleados en el archivo data.csv (modo texto).
+ *
+ * \param path char*
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
+int controller_loadFromText(LinkedList *pBookList, LinkedList *edList) {
+	int resp = 0;
+	char fileName[50];
+	int count = 0;
+	char confirm;
+	FILE *file;
+	initializeChar(fileName, 50);
+	if (pBookList != NULL) {
+		do {
+			clearConsole();
+			printf("\nEscriba nombre de archivo(ej.Datos.csv):");
+			cleanBuffer();
+			fgets(fileName, strlen(fileName), stdin);
+			char filePath[strlen(fileName) - 1];
+			for (int i = 0; i < strlen(fileName); i++) {
+				*(filePath + i) = *(fileName + i);
+			}
+			filePath[strcspn(filePath, "\n")] = 0;
+			file = fopen(filePath, "r");
+			if (file != NULL) {
+				count = parserBookFromText(file, pBookList, edList);
+				if (count) {
+					printf("\nSe leyeron %d registros desde el archivo %s",
+							count, fileName);
+					resp = 1;
+					break;
+				}
+				fclose(file);
+			} else {
+				printf("\nError!No se encuentra el archivo ingresado.");
+				printf("\n¿Desea intentar nuevamente? (s/n): ");
+				cleanBuffer();
+				scanf("%c", &confirm);
+			}
+		}while (!(confirm == 'n'));
+
+	}
+	return resp;
+}
+
+/*
+ int controller_map(LinkedList *pArrayListEmployee) {
+ int resp = 0;
+ LinkedList *mapped = NULL;
+ if (pArrayListEmployee != NULL) {
+ mapped = ll_map(pArrayListEmployee, employee_increaseSalary);
+ if (mapped != NULL) {
+ controller_saveAsText("Mapped.csv", mapped);
+ ll_deleteLinkedList(mapped);
+ }
+ }
+ return resp;
+ }
+ */

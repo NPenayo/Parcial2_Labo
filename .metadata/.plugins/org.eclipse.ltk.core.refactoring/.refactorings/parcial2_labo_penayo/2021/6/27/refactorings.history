@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;Datos.csv&apos; to &apos;parcial2_labo_penayo&apos;" description="Move &apos;Datos.csv&apos; to &apos;parcial2_labo_penayo&apos;" destination="/parcial2_labo_penayo" element1="src/Datos.csv" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1624841984446" updateReferences="true"/>
+</session>

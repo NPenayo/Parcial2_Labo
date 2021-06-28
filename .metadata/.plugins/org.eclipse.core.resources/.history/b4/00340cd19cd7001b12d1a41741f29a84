@@ -1,0 +1,62 @@
+/*
+ * Editorial.c
+ *
+ *  Created on: 27 Jun 2021
+ *      Author: npenayo
+ */
+#include "Editorial.h"
+#include <stddef.h>
+#include <stdio.h>
+
+Editorial* newEditorial(int id, char *description) {
+	Editorial *newEditorial = (Editorial*) malloc(sizeof(Editorial));
+	if (newEditorial != NULL) {
+		setEditorialId(newEditorial, id);
+		setEditorialDescription(newEditorial, description);
+	}
+	return newEditorial;
+}
+int getEditorialId(Editorial *this) {
+	int id = -1;
+	if (this != NULL) {
+		id = this->_id;
+	}
+	return id;
+}
+char getEditorialDescription(Editorial *this) {
+	char desc[128] = NULL;
+	if (this != NULL) {
+		strncpy(desc, this->_description, sizeof(desc));
+	}
+	return desc;
+}
+int setEditorialId(Editorial *this, int id) {
+	int resp = 0;
+	if (this != NULL) {
+		this->_id = id;
+		resp = 1;
+	}
+	return resp;
+
+}
+int setEditorialDescription(Editorial *this, char *description) {
+	int resp = 0;
+	if (this != NULL) {
+		strncpy(this->_description, description, sizeof(this->_description));
+		resp = 1;
+	}
+	return resp;
+}
+Editorial* getEditorialById(LinkedList* eList, int id){
+
+	Editorial* eFound = NULL;
+	if(eList != NULL && id > -1){
+		for(int i = 0; i< ll_len(eList);i++){
+			if(getEditorialId(((Editorial*)ll_get(eList,i))) == id){
+				eFound = ll_get(eList, i);
+				break;
+			}
+		}
+	}
+	return eFound;
+}

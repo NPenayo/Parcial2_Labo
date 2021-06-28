@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "LinkedList.h"
+#include "Book.h"
+
+/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
+ *
+ * \param path char*
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
+int parserBookFromText(FILE *pFile, LinkedList *pBookList) {
+	char buffer[5][128];
+	int registers = 0;
+	eBook *auxEmp = NULL;
+	fscanf(pFile, "%[^,],%[^,],%[^,],%[^,],%[^\n]\n", *(buffer + 0),
+			*(buffer + 1), *(buffer + 2), *(buffer + 3), *(buffer + 4));
+	while (!feof(pFile)) {
+
+		fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n]\n", *(buffer + 0),
+				*(buffer + 1), *(buffer + 2), *(buffer + 3));
+		registers++;
+		auxEmp = employee_newParametros(*(buffer + 0), *(buffer + 1),
+				*(buffer + 2), *(buffer + 3));
+		ll_add(pArrayListEmployee, auxEmp);
+
+	}
+
+	return registers;
+}
