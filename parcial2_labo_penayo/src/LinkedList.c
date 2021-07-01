@@ -438,7 +438,14 @@ int ll_sort(LinkedList *this, int (*pFunc)(void*, void*), int order) {
 	return returnAux;
 
 }
-
+/**
+ * @fn LinkedList ll_map*(LinkedList*, void(*)(void*))
+ * @brief Aplica una funcion a todos los elementos de una Linked List y devuelve una LinkedList modificada.
+ *
+ * @param this LinkedList donde se va a aplicar la funcion LinkedList*
+ * @param fn Funcion a aplicar
+ * @return Linkedlist *
+ */
 LinkedList* ll_map(LinkedList *this, void (*fn)(void *pElement)) {
 	LinkedList *resp = NULL;
 	if (this != NULL && fn != NULL) {

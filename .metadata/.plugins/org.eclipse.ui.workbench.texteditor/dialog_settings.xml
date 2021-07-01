@@ -12,6 +12,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="controller_ListBooks"/>
 			<item value="int controller_ListEmployee(LinkedList *pArrayListEmployee) {"/>
 			<item value="getEditorialDescription"/>
 			<item value="&#x09;char desc[128];"/>

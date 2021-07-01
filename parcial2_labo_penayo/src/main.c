@@ -56,7 +56,6 @@ int main(void) {
 			}
 		}
 	} while (!(opt == 5));
-
 	ll_deleteLinkedList(bookList);
 	ll_deleteLinkedList(edList);
 	return EXIT_SUCCESS;

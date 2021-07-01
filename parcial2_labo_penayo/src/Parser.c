@@ -4,10 +4,11 @@
 #include "Book.h"
 #include "Editorial.h"
 
-/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
+/** \brief Parsea los datos los datos de los empleados desde el archivo indicado por el usuario (modo texto).
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
+ * \param pFile char*
+ * \param pBookList LinkedList*
+ * \param edList LinkedList*
  * \return int
  *
  */

@@ -8,7 +8,14 @@
 #include "Arrays.h"
 #include "Book.h"
 #include "Editorial.h"
-
+/**
+ * \brief Guardar una LinkedList en un archivo de texto
+ *
+ * \param path Ruta del archivo a guardar | char*
+ * \param toSaveList LinkedList con los elementos a guardar | LinkedList*
+ * \param edList LinkedList de las editoriales a guardar | LinkedList*
+ * \return resp [0] si hay un error en el nombre del archivo y [1] si se guardó exitosamente. | int
+ */
 int controller_saveAsText(char *path, LinkedList *toSaveList,
 		LinkedList *edList) {
 	{
@@ -38,6 +45,13 @@ int controller_saveAsText(char *path, LinkedList *toSaveList,
 	}
 
 }
+/**
+ * \brief Listar los elementos de tipo eBook que se encuentran en la LinkedList
+ *
+ * \param bookList Listado de Libros | LinkedList*
+ * \param eList Listado de editoriales | LinkedList*
+ * \return resp [0] si el listado está vacío y [1] si se pudo listar exitosamente. | int
+ */
 int controller_ListBooks(LinkedList *bookList, LinkedList *eList) {
 	int resp = 0;
 	char edDesciption[128];
@@ -71,7 +85,12 @@ int controller_ListBooks(LinkedList *bookList, LinkedList *eList) {
 
 	return resp;
 }
-
+/**
+ * \brief Ordenar listado
+ *
+ * \param pBookList Listado de libros | LinkedList*
+ * \return resp [0] si el puntero es NULL y [1] si se ordenó exitosamente | int
+ */
 int controller_sortBooks(LinkedList *pBookList) {
 	int resp = 0;
 	if (pBookList != NULL) {
@@ -81,7 +100,13 @@ int controller_sortBooks(LinkedList *pBookList) {
 	}
 	return resp;
 }
-
+/**
+ * \brief Cargar datos de un archivo de texto e ingresarlo en una LinkedList de Libros
+ *
+ * \param pBookList Listado de libros | LinkedList *
+ * \param edList Lstado de editoriales | LinkedList *
+ * \return resp [0] si alguno de los punteros es NULL y [1] si se pudo leer el archivo exitosamente. | int
+ */
 int controller_loadFromText(LinkedList *pBookList, LinkedList *edList) {
 	int resp = 0;
 	char fileName[50];
@@ -121,11 +146,17 @@ int controller_loadFromText(LinkedList *pBookList, LinkedList *edList) {
 	}
 	return resp;
 }
-
+/**
+ * \brief Aplica una funcion a todos los elementos de la LinkedList y los guarda en un archivo "Mapeado.csv"
+ *
+ * \param pBookList Listado de libros | LinkedList*
+ * \param edList Listado de editoriales | LinkedList *
+ * \return resp [0] si alguno de los punteros es NULL y [1] si funciono ok. | int
+ */
 int controller_map(LinkedList *pBookList, LinkedList *edList) {
 	int resp = 0;
 	LinkedList *mapped = NULL;
-	if (pBookList != NULL && edList) {
+	if (pBookList != NULL && edList != NULL) {
 		mapped = ll_map(pBookList, editorialDiscount);
 		if (mapped != NULL) {
 			controller_saveAsText("Mapeado.csv", mapped, edList);
